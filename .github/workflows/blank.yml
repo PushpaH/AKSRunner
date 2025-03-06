@@ -17,11 +17,8 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZURE_AD_CLIENT_ID }}
-      # Subscription for Service Principal
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      # Tenant for Service Principal
-          tenant-id: ${{ secrets.AZURE_AD_TENANT_ID }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          allow-no-subscriptions: true
 
       - name: Create Resource Group (if not exists)
         run: |
