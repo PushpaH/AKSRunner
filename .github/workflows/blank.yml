@@ -1,0 +1,25 @@
+name: Deploy Azure VM
+
+on:
+  push:
+    branches:
+      - main  # Change this if needed
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  deploy-vm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Create Resource Group (if not exists)
+        run: |
+          az group create --name MyResourceGroup --location eastus
+
