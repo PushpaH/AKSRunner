@@ -22,5 +22,5 @@ jobs:
 
       - name: Create Resource Group (if not exists)
         run: |
-          az group create --name MyResourceGroup --location "West Europe"
+          az group create --name "cappdemo" --location "eastus"
 
