@@ -22,5 +22,5 @@ jobs:
 
       - name: Create Resource Group (if not exists)
         run: |
-          az group create --name "cappdemo" --location "eastus"
+          az containerapp env maintenance-config add --resource-group "demo-container-app" --environment "demo-container-app-env" --weekday Monday --start-hour-utc 1 --duration 8
 
