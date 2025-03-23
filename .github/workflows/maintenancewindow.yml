@@ -1,4 +1,4 @@
-name: Deploy Azure VM
+name: Deploy Azure Config Changes
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           allow-no-subscriptions: true
 
-      - name: Create Resource Group (if not exists)
+      - name: Add Container App Environment Maintenance Window
         run: |
           az containerapp env maintenance-config add --resource-group "demo-container-app" --environment "demo-container-app-env" --weekday Monday --start-hour-utc 1 --duration 8
 
