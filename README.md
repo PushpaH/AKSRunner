@@ -18,4 +18,4 @@ az containerapp env maintenance-config add \
   --start-hour-utc  \
   --duration 
 
-Example: 
+Example:  az containerapp env maintenance-config add --resource-group "demo-container-app" --environment "demo-container-app-env" --weekday Monday --start-hour-utc 1 --duration 8
